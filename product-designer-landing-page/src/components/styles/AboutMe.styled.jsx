@@ -9,16 +9,28 @@ export const Container = styled.div`
     @media (481px <= width <= 820px) {
         padding: 8rem 3rem;
     }
+
+    @media (320px <= width <= 480px) {
+        padding: 4rem 1.3rem;
+    }
 `
 
 export const AboutTexts = styled.div`
     width: 44rem;
+
+    @media (320px <= width <= 480px) {
+        width: 100%;
+    }
 `
 
 export const StyledHeading = styled.h1`
     font-size: 4rem;
     line-height: 100%;
     color: ${({ theme }) => theme.colors.aboutTextColor};
+
+    @media (320px <= width <= 480px) {
+        font-size: 3rem;
+    }
 `
 
 export const HorizontalLine = styled.hr`
@@ -27,6 +39,10 @@ export const HorizontalLine = styled.hr`
     border: none;
     background-color: #A87FF3;
     margin: 0.5rem 0 3rem;
+
+    @media (320px <= width <= 480px) {
+        width: 3rem;
+    }
 `
 
 export const AboutParagraph = styled.p`
@@ -36,10 +52,18 @@ export const AboutParagraph = styled.p`
     line-height: 1.2;
     margin-bottom: 1.2rem;
     color: ${({ theme }) => theme.colors.aboutTextColor};
+
+    @media (320px <= width <= 480px) {
+        font-size: 0.7rem;
+    }
 `
 
 export const AboutImage = styled.div`
     width: 34rem;
+
+    @media (320px <= width <= 480px) {
+        display: none;
+    }
 `
 
 export const Image = styled.img`

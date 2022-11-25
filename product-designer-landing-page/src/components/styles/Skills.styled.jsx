@@ -8,6 +8,10 @@ export const SkillsContainer = styled.div`
     @media (481px <= width <= 820px) {
         padding: 6rem 3rem 10rem;
     }
+
+    @media (320px <= width <= 480px) {
+        padding: 4rem 1.3rem 7rem;
+    }
 `
 
 export const Boxes = styled.div`
@@ -18,6 +22,11 @@ export const Boxes = styled.div`
 
     @media (481px <= width <= 820px) {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (320px <= width <= 480px) {
+        grid-template-columns: repeat(1, 1fr);
+        margin-top: 4rem;
     }
 `
 
@@ -31,11 +40,7 @@ export const Box = styled.div`
     justify-content: center;
     align-items: center;
     row-gap: 0.3rem;
-
-    @media (481px <= width <= 820px) {
-        padding: 3rem;
-    }
-
+    
     p {
         font-size: 2rem;
         background: ${({ theme }) => theme.backgroundColors.skillsPercentage};
@@ -44,10 +49,24 @@ export const Box = styled.div`
         background-clip: text;
         text-fill-color: transparent;
     }
-
+    
     h1 {
         font-size: 3rem;
         line-height: 100%;
         color: white;
     }
-`
+    
+    @media (481px <= width <= 820px) {
+        padding: 3rem;
+    }
+
+    @media (320px <= width <= 480px) {
+        p {
+            font-size: 1.8rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+        }
+    }
+    `

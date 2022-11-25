@@ -6,6 +6,10 @@ export const StyledHero = styled.div`
     width: 100%;
     background: ${({ theme }) => theme.backgroundColors.body};
     border-bottom: 1px solid #292929;
+
+    @media (320px <= width <= 480px) {
+        overflow-x: hidden;
+    }
 `
 
 export const Navbar = styled.div`
@@ -19,6 +23,10 @@ export const Navbar = styled.div`
     @media (481px <= width <= 820px) {
         padding: 1rem 3rem;
     }
+
+    @media (320px <= width <= 480px) {
+        padding: 1rem 1.3rem;
+    }
 `
 
 export const Logo = styled.img`
@@ -29,11 +37,15 @@ export const NavLinks = styled.ul`
     list-style-type: none;
     display: flex;
     gap: 3.7rem;
+
+    @media (320px <= width <= 480px) {
+        gap: 2rem;
+    }
 `
 
 export const Link = styled.li`
     a {
-        font-family: 'Roboto Condensed', monospace;
+        font-family: 'Roboto Condensed', sans-serif;
         font-weight: 400;
         color: ${({ theme }) => theme.colors.aboutTextColor};
         text-decoration: none;
@@ -48,6 +60,10 @@ export const Button = styled.button`
     border-radius: 6px;
     font-size: 1rem;
     font-family: 'Roboto Condensed', sans-serif;
+
+    @media (320px <= width <= 480px) {
+        display: none;
+    }
 `
 
 export const SwitchMode = styled.div`
@@ -56,12 +72,16 @@ export const SwitchMode = styled.div`
     right: 15rem;
     z-index: 9999;
     cursor: pointer;
-
-    
     
     @media (481px <= width <= 820px) {
         top: 1.5rem;
         right: 11rem;
+    }
+
+    @media (320px <= width <= 480px) {
+        position: absolute;
+        top: 5rem;
+        right: 1rem;
     }
 `
 
@@ -80,6 +100,11 @@ export const Heading = styled.h1`
         max-width: 35rem;
         font-size: 6rem;
     }
+
+    @media (320px <= width <= 480px) {
+        max-width: 25rem;
+        font-size: 5.5rem;
+    }
 `
 
 export const ImageRight = styled.img`
@@ -93,6 +118,10 @@ export const ImageRight = styled.img`
     @media (481px <= width <= 820px) {
         width: 15rem;
         height: 40rem;
+    }
+
+    @media (320px <= width <= 480px) {
+        display: none;
     }
 `
 
@@ -108,6 +137,10 @@ export const ImageLeft = styled.img`
         width: 15rem;
         height: 40rem;
     }
+
+    @media (320px <= width <= 480px) {
+        display: none;
+    }
 `
 
 export const ElipseLeft = styled.img`
@@ -119,6 +152,11 @@ export const ElipseLeft = styled.img`
 
     @media (481px <= width <= 820px) {
         width: 10rem;
+    }
+
+    @media (320px <= width <= 480px) {
+        width: 8rem;
+        height: 20rem;
     }
 `
 
@@ -132,11 +170,26 @@ export const ElipseRight = styled.img`
     @media (481px <= width <= 820px) {
         width: 10rem;
     }
+
+    @media (320px <= width <= 480px) {
+        top: 4.5rem;
+        width: 8rem;
+        height: 15rem;
+    }
 `
 
 export const ArrowDown = styled.img`
     position: absolute;
     left: 50%;
+    transform: translate(-50%);
     bottom: 1.2rem;
     width: 5rem;
+
+    @media (481px <= width <= 820px) {
+        transform: translate(-50%);
+    }
+
+    @media (320px <= width <= 480px) {
+        transform: translate(-50%);
+    }
 `
