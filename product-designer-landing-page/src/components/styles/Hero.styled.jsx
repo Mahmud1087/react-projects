@@ -50,6 +50,11 @@ export const Link = styled.li`
         color: ${({ theme }) => theme.colors.aboutTextColor};
         text-decoration: none;
         font-size: 1rem;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            color: #925FF0;
+        }
     }
 `
 
@@ -60,6 +65,11 @@ export const Button = styled.button`
     border-radius: 6px;
     font-size: 1rem;
     font-family: 'Roboto Condensed', sans-serif;
+    transition: all 0.25s ease-in-out;
+
+    &:hover {
+        background-color: ${({ theme }) => theme.colors.heroTextColor}
+    }
 
     @media (320px <= width <= 480px) {
         display: none;
@@ -95,6 +105,7 @@ export const Heading = styled.h1`
     line-height: 100%;
     text-align: center;
     max-width: 45rem;
+    z-index: 9999;
     
     @media (481px <= width <= 820px) {
         max-width: 35rem;

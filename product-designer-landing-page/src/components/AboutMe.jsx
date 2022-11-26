@@ -30,7 +30,7 @@ const aboutDetails = aboutMeData.map((about, index) => {
 
 export default function AboutMe() {
   return (
-    <Container>
+    <Container id="about">
         <FlexColumn>
             {aboutDetails}
         </FlexColumn>

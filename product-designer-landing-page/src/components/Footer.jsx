@@ -11,7 +11,7 @@ import {
 export default function Footer() {
   return (
     <FooterContainer>
-        <img src={logo} />
+        <a href="#"><img src={logo} /></a>
         <Socials>
             <img src={instagram} />
             <img src={facebook} />

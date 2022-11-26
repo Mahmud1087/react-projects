@@ -7,7 +7,7 @@ import {
 
 export default function Skills() {
   return (
-    <SkillsContainer>
+    <SkillsContainer id="skills">
         <StyledHeading>SKILLS</StyledHeading>
         <Boxes>
             <Box>

@@ -59,7 +59,7 @@ export const AboutParagraph = styled.p`
 `
 
 export const AboutImage = styled.div`
-    width: 34rem;
+    max-width: 34rem;
 
     @media (320px <= width <= 480px) {
         display: none;
