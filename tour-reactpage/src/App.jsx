@@ -1,33 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState, useEffect } from 'react'
+import Loading from './components/Loading'
+import Tours from './components/Tours'
+
+const url = 'https://course-api.com/react-tours-project'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [tour, setTour] = useState([])
+
+  useEffect(() => {
+    fetch(url)
+      .then((res) => {
+        if (res.status >= 200 && res.status <= 299) {
+          return res.json()
+        } else {
+          throw new Error(res.statusText)
+        }
+      })
+      .catch((error) => console.log(error))
+      .then((data) => setTour(data))
+  }, [])
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <main>
+      <Tours tour={tour} setTour={setTour} />
+    </main>
   )
 }
 
