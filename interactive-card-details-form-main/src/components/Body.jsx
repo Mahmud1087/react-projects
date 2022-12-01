@@ -1,30 +1,24 @@
 import leftBgDesktop from '../assets/bg-main-desktop.png'
 import leftBgMobile from '../assets/bg-main-mobile.png'
-import cardFront from '../assets/bg-card-front.png'
-import cardBack from '../assets/bg-card-back.png'
-import cardLogo from '../assets/card-logo.svg'
-import competeIcon from '../assets/icon-complete.svg'
 import {
   Attribution,
-  BackCard,
-  Button,
-  CardCVC,
-  CardExpDate,
-  CardLogo,
-  CardName,
-  CardNumber,
-  CardSection,
   Container,
-  FlexRow,
-  FormLabel,
-  FormSection,
-  FrontCard,
   LeftBackgroundDesktop,
   LeftBackgroundMobile,
   StyledBody,
 } from './styles/Body.styled'
+import Form from './Form'
+import Card from './Card'
+import ThankYouMessage from './ThankYouMessage'
 
-export default function Body() {
+export default function Body({
+  cardDetails,
+  setCardDetails,
+  isFilled,
+  setIsFilled,
+  error,
+  setError,
+}) {
   return (
     <>
       <StyledBody>
@@ -32,44 +26,20 @@ export default function Body() {
         <LeftBackgroundMobile src={leftBgMobile} />
 
         <Container>
-          <CardSection>
-            <FrontCard src={cardFront} />
-            <BackCard src={cardBack} />
-            <CardLogo src={cardLogo} />
-            <CardNumber>0000 0000 0000 0000</CardNumber>
-            <CardName>Jane Appleseed</CardName>
-            <CardExpDate>00/00</CardExpDate>
-            <CardCVC>000</CardCVC>
-          </CardSection>
-
-          <FormSection>
-            <FormLabel htmlFor='name'>
-              CARDHOLDER NAME
-              <input type='text' id='name' placeholder='e.g. Jane Appleseaed' />
-            </FormLabel>
-            <FormLabel htmlFor='number'>
-              CARD NUMBER
-              <input
-                type='text'
-                id='number'
-                placeholder='e.g. 1234 5678 9123 0000'
-              />
-            </FormLabel>
-            <FlexRow>
-              <FormLabel htmlFor='date'>
-                EXP. DATE (MM/YY)
-                <FlexRow>
-                  <input type='number' id='date' placeholder='MM' />
-                  <input type='number' id='date' placeholder='YY' />
-                </FlexRow>
-              </FormLabel>
-              <FormLabel htmlFor='cvc'>
-                CVC
-                <input type='number' id='cvc' placeholder='e.g. 123' />
-              </FormLabel>
-            </FlexRow>
-            <Button>Confirm</Button>
-          </FormSection>
+          <Card cardDetails={cardDetails} />
+          {isFilled ? (
+            <ThankYouMessage />
+          ) : (
+            <Form
+              cardDetails={cardDetails}
+              setCardDetails={setCardDetails}
+              isFilled={isFilled}
+              setIsFilled={setIsFilled}
+              error={error}
+              setError={setError}
+            />
+          )}
+          {/* <ThankYouMessage /> */}
         </Container>
         <Attribution>
           Challenge by{' '}

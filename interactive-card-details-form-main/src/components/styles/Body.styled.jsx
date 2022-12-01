@@ -14,11 +14,13 @@ export const StyledBody = styled.section`
 export const FlexRow = styled.div`
   display: flex;
   justify-content: space-between;
+  gap: 1.5rem;
 `
 
 export const FlexColumn = styled.div`
   display: flex;
   flex-direction: column;
+  row-gap: 1rem;
 `
 
 export const LeftBackgroundDesktop = styled.img`
@@ -54,87 +56,15 @@ export const Container = styled.div`
   margin: auto;
 `
 
-export const CardSection = styled.div`
-  position: relative;
-  background-color: red;
-  /* display: flex;
-  flex-direction: column;
-  row-gap: 1.5rem; */
-  width: 50%;
-`
-
-export const FrontCard = styled.img`
-  position: absolute;
-  width: 70%;
-  bottom: 0;
-  left: 0;
-  margin-bottom: 0.7rem;
-`
-
-export const BackCard = styled.img`
-  position: absolute;
-  width: 70%;
-  top: 0;
-  right: 5rem;
-  margin-top: 0.7rem;
-`
-
-export const CardLogo = styled.img`
-  position: absolute;
-  bottom: 9.8rem;
-  width: 4rem;
-  left: 1.6rem;
-`
-
-export const CardNumber = styled.h1`
-  position: absolute;
-  left: 1.6rem;
-  bottom: 4.5rem;
-  color: ${({ theme }) => theme.colors.white};
-  width: 100%;
-  font-size: 1.5rem;
-  letter-spacing: 2.5px;
-`
-
-export const CardName = styled.h3`
-  position: absolute;
-  left: 1.6rem;
-  bottom: 2rem;
-  color: ${({ theme }) => theme.colors.white};
-  font-size: 0.9rem;
-  letter-spacing: 2px;
-`
-
-export const CardExpDate = styled.h3`
-  position: absolute;
-  left: 18rem;
-  bottom: 2rem;
-  color: ${({ theme }) => theme.colors.white};
-  font-size: 0.9rem;
-  letter-spacing: 2px;
-`
-
-export const CardCVC = styled.h3`
-  position: absolute;
-  left: 22rem;
-  top: 6.2rem;
-  color: ${({ theme }) => theme.colors.white};
-  font-size: 0.9rem;
-  letter-spacing: 2px;
-`
-
-export const FormSection = styled.form`
-  position: absolute;
-  right: 13rem;
-  width: 30%;
-`
-
-export const FormLabel = styled.label``
-
 export const Button = styled.button`
   width: 100%;
   color: white;
   background: ${({ theme }) => theme.colors.veryDarkViolet};
+  border-radius: 5px;
+  padding: 0.8rem 0;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
 `
 
 export const Attribution = styled.div`
