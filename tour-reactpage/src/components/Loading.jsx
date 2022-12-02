@@ -1,7 +1,9 @@
+import { ImSpinner, ImSpinner10 } from 'react-icons/im'
+
 const Loading = () => {
   return (
     <div className='loading'>
-      <h1>loading...</h1>
+      <ImSpinner size={60} />
     </div>
   )
 }
