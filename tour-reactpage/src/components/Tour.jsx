@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import reactLogo from '../assets/react.svg'
 
 const Tour = ({ tour, setTour }) => {
-  //   const [deleteBtn, setDeleteBtn] = useState(false)
+  const [isReadMore, setIsReadMore] = useState(false)
 
   function handleClick(id) {
     setTour((prevTour) => {
@@ -21,7 +20,10 @@ const Tour = ({ tour, setTour }) => {
             <h4 className='tour-price'>${price}</h4>
           </div>
           <p>
-            {info} <button>Read More</button>
+            {isReadMore ? info : `${info.substring(0, 200)}...`}{' '}
+            <button onClick={() => setIsReadMore(!isReadMore)}>
+              {isReadMore ? 'show less' : 'read more'}
+            </button>
           </p>
           <button className='delete-btn' onClick={() => handleClick(id)}>
             Not Interested
