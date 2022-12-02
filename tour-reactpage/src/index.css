@@ -158,7 +158,11 @@ main {
   margin: 5rem auto;
 }
 .loading {
-  text-align: center;
+  /* text-align: center; */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .title {
   text-align: center;
