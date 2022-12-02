@@ -6,6 +6,7 @@ const url = 'https://course-api.com/react-tours-project'
 
 function App() {
   const [tour, setTour] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     fetch(url)
@@ -16,14 +17,23 @@ function App() {
           throw new Error(res.statusText)
         }
       })
+      .then((data) => {
+        setIsLoading(false)
+        setTour(data)
+      })
       .catch((error) => console.log(error))
-      .then((data) => setTour(data))
   }, [])
 
   return (
-    <main>
-      <Tours tour={tour} setTour={setTour} />
-    </main>
+    <>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <main>
+          <Tours tour={tour} setTour={setTour} />
+        </main>
+      )}
+    </>
   )
 }
 
