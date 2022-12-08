@@ -1,28 +1,16 @@
-const Categories = ({ filterMenu }) => {
-  // const {category} = foodItems
-
-  // function all() {
-  //   setFoodItems(foodItems)
-  // }
-  // function lunch(cat) {
-  //   setFoodItems(foodItems.filter((foodMenu) => foodMenu.category === cat))
-  // }
-  // function shakes(cat) {
-  //   setFoodItems(foodItems.filter((foodMenu) => foodMenu.category === cat))
-  // }
-
+const Categories = ({ categories, filterMenu }) => {
   return (
     <div className='btn-container'>
-      <button className='filter-btn'>All</button>
-      <button className='filter-btn' onClick={() => filterMenu('breakfast')}>
-        Breakfast
-      </button>
-      <button className='filter-btn' onClick={() => filterMenu('lunch')}>
-        Lunch
-      </button>
-      <button className='filter-btn' onClick={() => filterMenu('shakes')}>
-        Shakes
-      </button>
+      {categories.map((category, index) => {
+        return (
+          <button
+            className='filter-btn'
+            key={index}
+            onClick={() => filterMenu(category)}>
+            {category}
+          </button>
+        )
+      })}
     </div>
   )
 }
