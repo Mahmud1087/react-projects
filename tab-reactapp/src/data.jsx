@@ -1,4 +1,4 @@
-export default [
+export const data = [
   {
     id: 'recAGJfiU4CeaV0HL',
     order: 3,
