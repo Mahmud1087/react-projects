@@ -1,32 +1,40 @@
-import { useState, useRef } from 'react'
+import { useRef, useReducer } from 'react'
 import { AddButton, BoxItem, CreateItemInput } from './styles/TodoBody.styled'
 import { MdAddCircle } from 'react-icons/md'
 import TodoList from './TodoList'
+import Modal from './Modal'
+import { reducer } from './reducer'
+
+const defaultStates = {
+  todoList: [],
+  modalContent: '',
+  isModalOpen: false,
+}
 
 export default function TodoBody() {
   const todoItem = useRef(null)
+  const [state, dispatch] = useReducer(reducer, defaultStates)
 
-  const [todoList, setTodoList] = useState([])
-
-  function addItem(e) {
-    e.preventDefault()
+  function addItem() {
     const items = {
       id: new Date().getTime().toString(),
       item: todoItem.current.value,
       checked: false,
     }
     if (todoItem.current.value) {
-      setTodoList((prevList) => {
-        return [...prevList, items]
-      })
+      dispatch({ type: 'ADD_ITEM', payload: items })
     } else {
-      console.log('Please enter an item')
+      dispatch({ type: 'NO_ITEM' })
     }
     todoItem.current.value = ''
   }
 
   function removeItem(id) {
-    setTodoList((prevList) => prevList.filter((item) => item.id !== id))
+    dispatch({ type: 'REMOVE_ITEM', payload: id })
+  }
+
+  function closeModal() {
+    dispatch({ type: 'CLOSE_MODAL' })
   }
 
   return (
@@ -41,7 +49,10 @@ export default function TodoBody() {
           <MdAddCircle />
         </AddButton>
       </BoxItem>
-      <TodoList todoList={todoList} removeItem={removeItem} />
+      <TodoList todoList={state.todoList} removeItem={removeItem} />
+      {state.isModalOpen && (
+        <Modal modalContent={state.modalContent} closeModal={closeModal} />
+      )}
     </>
   )
 }
