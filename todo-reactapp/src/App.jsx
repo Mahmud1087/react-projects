@@ -39,7 +39,7 @@ export default function App() {
     checkerBorder_ItemBottomBorder: isDarkMode
       ? colors.veryDarkGrayishBlue
       : colors.lightGrayishBlue,
-    blue: colors.brightBlue,
+    blue: isDarkMode ? colors.purple : colors.brightBlue,
   }
 
   return (
