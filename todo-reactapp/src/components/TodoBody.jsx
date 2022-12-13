@@ -9,7 +9,6 @@ const defaultStates = {
   todoList: [],
   modalContent: '',
   isModalOpen: false,
-  isChecked: false,
 }
 
 export default function TodoBody() {
@@ -21,7 +20,6 @@ export default function TodoBody() {
       id: new Date().getTime().toString(),
       item: todoItem.current.value,
       isCompleted: false,
-      // isChecked: false,
     }
     if (todoItem.current.value) {
       dispatch({ type: 'ADD_ITEM', payload: items })
@@ -57,7 +55,6 @@ export default function TodoBody() {
       </BoxItem>
       <TodoList
         todoList={state.todoList}
-        isCompleted={state.isCompleted}
         removeItem={removeItem}
         completed={completed}
       />
