@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const BoxItem = styled.div`
-  padding: 0.8rem 1.2rem;
+  padding: 0.5rem 1.2rem;
   background-color: ${({ theme }) => theme.header_ItemBoxBG};
   display: flex;
   justify-content: space-between;
@@ -29,7 +29,7 @@ export const AddButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
+  font-size: 27px;
   border-radius: 50px;
   color: ${({ theme }) => theme.blue};
 
