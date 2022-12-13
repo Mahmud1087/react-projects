@@ -9,6 +9,7 @@ const defaultStates = {
   todoList: [],
   modalContent: '',
   isModalOpen: false,
+  isChecked: false,
 }
 
 export default function TodoBody() {
@@ -19,7 +20,8 @@ export default function TodoBody() {
     const items = {
       id: new Date().getTime().toString(),
       item: todoItem.current.value,
-      checked: false,
+      isCompleted: false,
+      // isChecked: false,
     }
     if (todoItem.current.value) {
       dispatch({ type: 'ADD_ITEM', payload: items })
@@ -37,6 +39,10 @@ export default function TodoBody() {
     dispatch({ type: 'CLOSE_MODAL' })
   }
 
+  function completed(id) {
+    dispatch({ type: 'COMPLETED_TASK', payload: id })
+  }
+
   return (
     <>
       <BoxItem>
@@ -49,7 +55,12 @@ export default function TodoBody() {
           <MdAddCircle />
         </AddButton>
       </BoxItem>
-      <TodoList todoList={state.todoList} removeItem={removeItem} />
+      <TodoList
+        todoList={state.todoList}
+        isCompleted={state.isCompleted}
+        removeItem={removeItem}
+        completed={completed}
+      />
       {state.isModalOpen && (
         <Modal modalContent={state.modalContent} closeModal={closeModal} />
       )}
