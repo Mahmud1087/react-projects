@@ -1,6 +1,7 @@
 export const colors = {
   // Primary
   brightBlue: 'hsl(220, 98%, 61%)',
+  purple: '#9f06ad',
   checkBG: 'linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%))',
 
   // Light Theme
