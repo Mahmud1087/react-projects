@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { MdCheckCircle, MdClose, MdRadioButtonUnchecked } from 'react-icons/md'
 import {
   CheckItem,
@@ -11,26 +10,25 @@ import {
   Todos,
 } from './styles/TodoList.styled'
 
-export default function TodoList({ todoList, removeItem }) {
-  const [isChecked, setIsChecked] = useState(false)
+export default function TodoList({ todoList, removeItem, completed }) {
   return (
     <Todos>
       {todoList.map((todo) => {
         return (
           <TodoItems key={todo.id}>
             <CheckItem>
-              {isChecked ? (
+              {todo.isChecked ? (
                 <MdCheckCircle
                   className='checked'
-                  onClick={() => setIsChecked(!isChecked)}
+                  onClick={() => completed(todo.id)}
                 />
               ) : (
                 <MdRadioButtonUnchecked
                   className='unChecked'
-                  onClick={() => setIsChecked(!isChecked)}
+                  onClick={() => completed(todo.id)}
                 />
               )}
-              {isChecked ? (
+              {todo.isChecked ? (
                 <ItemCompleted>{todo.item}</ItemCompleted>
               ) : (
                 <Item>{todo.item}</Item>
