@@ -33,6 +33,10 @@ export default function TodoBody() {
     dispatch({ type: 'REMOVE_ITEM', payload: id })
   }
 
+  function clearCompleted(isCompleted) {
+    dispatch({ type: 'CLEAR_COMPLETED', payload: isCompleted })
+  }
+
   function closeModal() {
     dispatch({ type: 'CLOSE_MODAL' })
   }
@@ -57,6 +61,7 @@ export default function TodoBody() {
         todoList={state.todoList}
         removeItem={removeItem}
         completed={completed}
+        clearCompleted={clearCompleted}
       />
       {state.isModalOpen && (
         <Modal modalContent={state.modalContent} closeModal={closeModal} />
