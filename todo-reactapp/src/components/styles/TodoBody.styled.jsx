@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const BoxItem = styled.div`
+export const BoxItem = styled.form`
   padding: 0.5rem 1.2rem;
   background-color: ${({ theme }) => theme.header_ItemBoxBG};
   display: flex;

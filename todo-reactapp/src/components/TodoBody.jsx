@@ -15,7 +15,8 @@ export default function TodoBody() {
   const todoItem = useRef(null)
   const [state, dispatch] = useReducer(reducer, defaultStates)
 
-  function addItem() {
+  function addItem(e) {
+    e.preventDefault()
     const items = {
       id: new Date().getTime().toString(),
       item: todoItem.current.value,
