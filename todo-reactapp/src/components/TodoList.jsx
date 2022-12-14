@@ -10,12 +10,7 @@ import {
   Todos,
 } from './styles/TodoList.styled'
 
-export default function TodoList({
-  todoList,
-  removeItem,
-  completed,
-  clearCompleted,
-}) {
+export default function TodoList({ todoList, removeItem, completedTask, clearCompleted }) {
   return (
     <Todos>
       {todoList.map((todo) => {
@@ -25,12 +20,12 @@ export default function TodoList({
               {todo.isCompleted ? (
                 <MdCheckCircle
                   className='checked'
-                  onClick={() => completed(todo.id)}
+                  onClick={() => completedTask(todo.id)}
                 />
               ) : (
                 <MdRadioButtonUnchecked
                   className='unChecked'
-                  onClick={() => completed(todo.id)}
+                  onClick={() => completedTask(todo.id)}
                 />
               )}
               {todo.isCompleted ? (

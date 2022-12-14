@@ -35,7 +35,7 @@ export const CheckItem = styled.div`
   }
 
   & .checked {
-    color: ${({ theme }) => theme.blue};
+    color: hsl(220, 98%, 61%);
     font-size: 22px;
   }
 `
@@ -76,7 +76,7 @@ export const TodoItemsFooter = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 0 0 6px 6px;
+  border-radius: 6px;
   border-bottom: 1px solid
     ${({ theme }) => theme.checkerBorder_ItemBottomBorder};
 `

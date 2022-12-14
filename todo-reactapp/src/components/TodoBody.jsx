@@ -4,11 +4,16 @@ import { MdAddCircle } from 'react-icons/md'
 import TodoList from './TodoList'
 import Modal from './Modal'
 import { reducer } from './reducer'
+import FooterButtons from './FooterButtons'
+import { Footer } from './styles/App.styled'
 
 const defaultStates = {
   todoList: [],
   modalContent: '',
   isModalOpen: false,
+  // all: [],
+  // active: [],
+  // completed: [],
 }
 
 export default function TodoBody() {
@@ -42,12 +47,15 @@ export default function TodoBody() {
     dispatch({ type: 'CLOSE_MODAL' })
   }
 
-  function completed(id) {
+  function completedTask(id) {
     dispatch({ type: 'COMPLETED_TASK', payload: id })
   }
 
   return (
     <>
+      {state.isModalOpen && (
+        <Modal modalContent={state.modalContent} closeModal={closeModal} />
+      )}
       <BoxItem>
         <CreateItemInput
           type='text'
@@ -61,11 +69,12 @@ export default function TodoBody() {
       <TodoList
         todoList={state.todoList}
         removeItem={removeItem}
-        completed={completed}
+        completedTask={completedTask}
         clearCompleted={clearCompleted}
       />
-      {state.isModalOpen && (
-        <Modal modalContent={state.modalContent} closeModal={closeModal} />
+      {state.todoList.length > 0 && <FooterButtons />}
+      {state.todoList.length > 0 && (
+        <Footer>Drag and drop to reorder list</Footer>
       )}
     </>
   )

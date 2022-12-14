@@ -6,7 +6,6 @@ import {
   DarkModeBgDesktop,
   DarkModeBgMobile,
   DarkModeIcon,
-  Footer,
   Header,
   Heading,
   LightModeBgDesktop,
@@ -71,7 +70,6 @@ export default function App() {
           )}
         </Header>
         <TodoBody />
-        <Footer>Drag and drop to reorder list</Footer>
       </Container>
     </ThemeProvider>
   )
