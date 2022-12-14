@@ -27,14 +27,21 @@ export const reducer = (state, action) => {
         task.id === action.payload
           ? {
               ...task,
-              // isCompleted: !task.isCompleted,
-              isChecked: !task.isChecked,
+              isCompleted: !task.isCompleted,
             }
           : task
       )
       return {
         ...state,
         todoList: completedTask,
+      }
+    case 'CLEAR_COMPLETED':
+      const newTasks = state.todoList.filter(
+        (task) => task.isCompleted !== action.payload
+      )
+      return {
+        ...state,
+        todoList: newTasks,
       }
     default:
       throw new Error('No matching type')
