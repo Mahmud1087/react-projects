@@ -10,14 +10,19 @@ import {
   Todos,
 } from './styles/TodoList.styled'
 
-export default function TodoList({ todoList, removeItem, completed }) {
+export default function TodoList({
+  todoList,
+  removeItem,
+  completed,
+  clearCompleted,
+}) {
   return (
     <Todos>
       {todoList.map((todo) => {
         return (
           <TodoItems key={todo.id}>
             <CheckItem>
-              {todo.isChecked ? (
+              {todo.isCompleted ? (
                 <MdCheckCircle
                   className='checked'
                   onClick={() => completed(todo.id)}
@@ -28,7 +33,7 @@ export default function TodoList({ todoList, removeItem, completed }) {
                   onClick={() => completed(todo.id)}
                 />
               )}
-              {todo.isChecked ? (
+              {todo.isCompleted ? (
                 <ItemCompleted>{todo.item}</ItemCompleted>
               ) : (
                 <Item>{todo.item}</Item>
@@ -45,7 +50,9 @@ export default function TodoList({ todoList, removeItem, completed }) {
           <ItemsLeft>No items</ItemsLeft>
         )}
         {todoList.length >= 1 && (
-          <ClearCompleted>Clear Completed</ClearCompleted>
+          <ClearCompleted onClick={() => clearCompleted(true)}>
+            Clear Completed
+          </ClearCompleted>
         )}
       </TodoItemsFooter>
     </Todos>
