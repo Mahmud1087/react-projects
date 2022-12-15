@@ -11,9 +11,7 @@ const defaultStates = {
   todoList: [],
   modalContent: '',
   isModalOpen: false,
-  // all: [],
-  // active: [],
-  // completed: [],
+  todoListCopy: [],
 }
 
 export default function TodoBody() {
@@ -50,6 +48,9 @@ export default function TodoBody() {
   function completedTask(id) {
     dispatch({ type: 'COMPLETED_TASK', payload: id })
   }
+  function allActiveCompleted(buttons) {
+    dispatch({ type: 'ACTIVE_TASK', payload: buttons })
+  }
 
   return (
     <>
@@ -72,7 +73,7 @@ export default function TodoBody() {
         completedTask={completedTask}
         clearCompleted={clearCompleted}
       />
-      {state.todoList.length > 0 && <FooterButtons />}
+      <FooterButtons allActiveCompleted={allActiveCompleted} />
       {state.todoList.length > 0 && (
         <Footer>Drag and drop to reorder list</Footer>
       )}
