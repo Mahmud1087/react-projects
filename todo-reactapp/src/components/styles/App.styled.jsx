@@ -83,6 +83,6 @@ export const Footer = styled.footer`
   margin: 3rem 0;
   color: ${({ theme }) => theme.itemCompleted};
   font-weight: 600;
-  font-size: 1.15rem;
+  font-size: 1rem;
   text-align: center;
 `
