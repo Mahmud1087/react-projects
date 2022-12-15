@@ -1,7 +1,7 @@
-# Review Page
+# Todo web app
 
-This is a simple slider review page where people's reviews are shown.
+This project idea and files was gotten from [frontendmentor.io](https://www.frontendmentor.io)
 
-You can switch reviews forward or backwards using the arrow buttons on the page.
+I just made some changes to the UI and added some more functionalities
 
-You can also click the 'Suprise Me' button to get a random review
+You can check out the live link [here](https://todo-appp-main.netlify.app/)
