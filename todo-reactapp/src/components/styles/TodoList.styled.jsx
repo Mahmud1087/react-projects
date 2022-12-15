@@ -56,7 +56,7 @@ export const ItemCompleted = styled.p`
 
 export const ItemsLeft = styled.p`
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: ${({ theme }) => theme.itemCompleted};
 `
 
