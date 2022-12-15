@@ -74,9 +74,9 @@ export default function TodoBody() {
         clearCompleted={clearCompleted}
       />
       <FooterButtons allActiveCompleted={allActiveCompleted} />
-      {state.todoList.length > 0 && (
+      {/* {state.todoList.length > 0 && (
         <Footer>Drag and drop to reorder list</Footer>
-      )}
+      )} */}
     </>
   )
 }
