@@ -10,7 +10,12 @@ import {
   Todos,
 } from './styles/TodoList.styled'
 
-export default function TodoList({ todoList, removeItem, completedTask, clearCompleted }) {
+export default function TodoList({
+  todoList,
+  removeItem,
+  completedTask,
+  clearCompleted,
+}) {
   return (
     <Todos>
       {todoList.map((todo) => {
@@ -40,9 +45,11 @@ export default function TodoList({ todoList, removeItem, completedTask, clearCom
       })}
       <TodoItemsFooter>
         {todoList.length >= 1 ? (
-          <ItemsLeft>{todoList.length} items left</ItemsLeft>
+          <ItemsLeft>
+            {todoList.length} task{todoList.length > 1 && 's'}
+          </ItemsLeft>
         ) : (
-          <ItemsLeft>No items</ItemsLeft>
+          <ItemsLeft>No task</ItemsLeft>
         )}
         {todoList.length >= 1 && (
           <ClearCompleted onClick={() => clearCompleted(true)}>
