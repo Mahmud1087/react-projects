@@ -52,6 +52,13 @@ export default function TodoBody() {
     dispatch({ type: 'ACTIVE_TASK', payload: buttons })
   }
 
+  function handleOnDragEnd(result) {
+    const lists = Array.from(state.todoList)
+    const [reorderdList] = lists.splice(result.source.index, -1)
+    lists.splice(result.destination.index, 0, reorderdList)
+    dispatch({ type: 'dragNdrop', payload: lists })
+  }
+
   return (
     <>
       {state.isModalOpen && (
@@ -72,11 +79,12 @@ export default function TodoBody() {
         removeItem={removeItem}
         completedTask={completedTask}
         clearCompleted={clearCompleted}
+        handleOnDragEnd={handleOnDragEnd}
       />
       <FooterButtons allActiveCompleted={allActiveCompleted} />
-      {/* {state.todoList.length > 0 && (
+      {state.todoList.length > 0 && (
         <Footer>Drag and drop to reorder list</Footer>
-      )} */}
+      )}
     </>
   )
 }

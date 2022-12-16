@@ -68,6 +68,13 @@ export const reducer = (state, action) => {
         ...state,
         todoList: activeTasks,
       }
+
+    case 'dragNdrop':
+      return {
+        ...state,
+        todoList: action.payload,
+        todoListCopy: action.payload,
+      }
     default:
       throw new Error('No matching type')
   }
