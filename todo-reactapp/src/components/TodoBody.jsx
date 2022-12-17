@@ -53,10 +53,7 @@ export default function TodoBody() {
   }
 
   function handleOnDragEnd(result) {
-    const lists = Array.from(state.todoList)
-    const [reorderdList] = lists.splice(result.source.index, -1)
-    lists.splice(result.destination.index, 0, reorderdList)
-    dispatch({ type: 'dragNdrop', payload: lists })
+    dispatch({ type: 'dragNdrop', payload: result })
   }
 
   return (

@@ -70,10 +70,14 @@ export const reducer = (state, action) => {
       }
 
     case 'dragNdrop':
+      if (!action.payload.destination) return { ...state }
+      const lists = Array.from(state.todoList)
+      const [reorderdList] = lists.splice(action.payload.source.index, 1)
+      lists.splice(action.payload.destination.index, 0, reorderdList)
       return {
         ...state,
-        todoList: action.payload,
-        todoListCopy: action.payload,
+        todoList: lists,
+        todoListCopy: lists,
       }
     default:
       throw new Error('No matching type')
