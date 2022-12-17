@@ -58,11 +58,11 @@ export const reducer = (state, action) => {
       const activeTasks = state.todoListCopy.filter((task) => {
         if (action.payload === 'active') {
           return task.isCompleted !== true
-        } else if (action.payload === 'completed') {
-          return task.isCompleted !== false
-        } else {
-          return task
         }
+        if (action.payload === 'completed') {
+          return task.isCompleted !== false
+        }
+        return task
       })
       return {
         ...state,
@@ -77,7 +77,6 @@ export const reducer = (state, action) => {
       return {
         ...state,
         todoList: lists,
-        todoListCopy: lists,
       }
     default:
       throw new Error('No matching type')

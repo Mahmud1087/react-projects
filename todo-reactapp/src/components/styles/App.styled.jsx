@@ -53,9 +53,16 @@ export const DarkModeBgDesktop = styled.img`
 `
 
 export const Container = styled.div`
-  min-width: 70%;
   width: 90%;
   margin: auto;
+
+  @media screen and (min-width: 481px) and (max-width: 760px) {
+    width: 70%;
+  }
+
+  @media screen and (min-width: 761px) {
+    width: 45%;
+  }
 `
 
 export const Header = styled.div`
