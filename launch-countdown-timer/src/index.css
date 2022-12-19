@@ -10,7 +10,7 @@ Variables
   --clr-soft-red: hsl(345, 95%, 68%);
 
   /* Neutral colors */
-  --clr-hite: hsl(0, 0%, 100%);
+  --clr-white: hsl(0, 0%, 100%);
   --clr-dark-desaturated-blue: hsl(236, 21%, 26%);
   --clr-very-dark-blue: hsl(235, 16%, 14%);
   --clr-mostly-dark-blue: hsl(234, 17%, 12%);
@@ -23,6 +23,8 @@ Variables
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   --max-width: 1170px;
   --fixed-width: 620px;
+
+  /* font size */
   --fs: 14px;
 }
 /*
@@ -55,9 +57,55 @@ a {
 }
 
 .attribution {
+  position: absolute;
+  bottom: 1rem;
+  color: #f3f3f3;
   font-size: 11px;
   text-align: center;
 }
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: var(--clr-grayish-blue);
+}
+
+main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 3rem 1.5rem;
+  background: url('../src/assets/bg-stars.svg');
+  background-color: var(--clr-very-dark-blue);
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  bottom: 0;
+  left: 0;
+  background: url('../src/assets/pattern-hills.svg');
+  background-size: cover;
+  background-position-x: 85%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+footer .icons {
+  font-size: 2rem;
+  color: var(--clr-grayish-blue);
+  transition: var(--transition);
+}
+
+footer .icons:hover {
+  color: var(--clr-soft-red);
+}
+
+.title {
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 4rem;
+  color: var(--clr-white);
+  letter-spacing: 5px;
 }
