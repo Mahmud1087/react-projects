@@ -5,6 +5,12 @@ import Alert from './components/Alert'
 function App() {
   const [groceries, setGroceries] = useState([])
   const [inputItem, setInputItem] = useState('')
+  const [alertMessage, setAlertMessage] = useState({
+    show: false,
+    msg: '',
+    cls: '',
+  })
+  const [edit, setEdit] = useState(false)
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -14,14 +20,30 @@ function App() {
         groceryItem: inputItem,
       }
       setGroceries([...groceries, item])
+      setAlertMessage({
+        show: true,
+        msg: 'item added to the list',
+        cls: 'success',
+      })
     } else {
-      console.log('empty')
+      setAlertMessage({ show: true, msg: 'please enter value', cls: 'danger' })
     }
+  }
+
+  function handleDelete(id) {
+    setGroceries((prevList) => prevList.filter((list) => list.id !== id))
+    setAlertMessage({ show: true, msg: 'item removed', cls: 'danger' })
   }
 
   return (
     <section className='section-center'>
       <form className='grocery-form' onSubmit={handleSubmit}>
+        {alertMessage.show && (
+          <Alert
+            alertMessage={alertMessage}
+            setAlertMessage={setAlertMessage}
+          />
+        )}
         <h3>grocery bud</h3>
         <div className='form-control'>
           <input
@@ -37,7 +59,9 @@ function App() {
         </div>
         <div className='grocery-container'>
           {groceries.map((grocery) => {
-            return <List key={grocery.id} {...grocery} />
+            return (
+              <List key={grocery.id} {...grocery} handleDelete={handleDelete} />
+            )
           })}
         </div>
       </form>
