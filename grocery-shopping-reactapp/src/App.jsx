@@ -25,6 +25,8 @@ function App() {
         msg: 'item added to the list',
         cls: 'success',
       })
+      setInputItem('')
+      setEdit(false)
     } else {
       setAlertMessage({ show: true, msg: 'please enter value', cls: 'danger' })
     }
@@ -33,6 +35,12 @@ function App() {
   function handleDelete(id) {
     setGroceries((prevList) => prevList.filter((list) => list.id !== id))
     setAlertMessage({ show: true, msg: 'item removed', cls: 'danger' })
+  }
+
+  function handleEdit(id) {
+    const specificItem = groceries.find((item) => item.id === id)
+    setEdit(true)
+    setInputItem(specificItem.groceryItem)
   }
 
   return (
@@ -45,6 +53,7 @@ function App() {
           />
         )}
         <h3>grocery bud</h3>
+
         <div className='form-control'>
           <input
             type='text'
@@ -54,17 +63,22 @@ function App() {
             className='grocery'
           />
           <button type='submit' className='submit-btn'>
-            submit
+            {edit ? 'edit' : 'submit'}
           </button>
         </div>
-        <div className='grocery-container'>
-          {groceries.map((grocery) => {
-            return (
-              <List key={grocery.id} {...grocery} handleDelete={handleDelete} />
-            )
-          })}
-        </div>
       </form>
+      <div className='grocery-container'>
+        {groceries.map((grocery) => {
+          return (
+            <List
+              key={grocery.id}
+              {...grocery}
+              handleDelete={handleDelete}
+              handleEdit={handleEdit}
+            />
+          )
+        })}
+      </div>
     </section>
   )
 }
