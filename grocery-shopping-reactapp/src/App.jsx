@@ -2,8 +2,16 @@ import React, { useState, useEffect } from 'react'
 import List from './components/List'
 import Alert from './components/Alert'
 
+function getLocalStorage() {
+  const item = localStorage.getItem('list')
+  if (item) {
+    return JSON.parse(item)
+  }
+  return []
+}
+
 function App() {
-  const [groceries, setGroceries] = useState([])
+  const [groceries, setGroceries] = useState(getLocalStorage())
   const [inputItem, setInputItem] = useState('')
   const [editID, setEditID] = useState(null)
   const [alertMessage, setAlertMessage] = useState({
@@ -62,6 +70,10 @@ function App() {
     setInputItem(specificItem.groceryItem)
     setEditID(id)
   }
+
+  useEffect(() => {
+    localStorage.setItem('list', JSON.stringify(groceries))
+  })
 
   return (
     <section className='section-center'>
