@@ -1,10 +1,10 @@
-import Footer from './components/Footer'
+import React, { useState } from 'react'
+import SingleColor from './components/SingleColor'
 
-export default function App() {
-  return (
-    <main>
-      <h2 className='title'>we're launching soon</h2>
-      <Footer />
-    </main>
-  )
+import Values from 'values.js'
+
+function App() {
+  return <h2>color generator project</h2>
 }
+
+export default App
