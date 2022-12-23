@@ -5,6 +5,7 @@ import Alert from './components/Alert'
 function App() {
   const [groceries, setGroceries] = useState([])
   const [inputItem, setInputItem] = useState('')
+  const [editID, setEditID] = useState(null)
   const [alertMessage, setAlertMessage] = useState({
     show: false,
     msg: '',
@@ -14,7 +15,26 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    if (inputItem) {
+    if (!inputItem) {
+      setAlertMessage({ show: true, msg: 'please enter value', cls: 'danger' })
+    } else if (inputItem && edit) {
+      setGroceries(
+        groceries.map((list) => {
+          if (list.id === editID) {
+            return { ...list, groceryItem: inputItem }
+          }
+          return list
+        })
+      )
+      setEdit(false)
+      setInputItem('')
+      setEditID(null)
+      setAlertMessage({
+        show: true,
+        msg: 'value changed',
+        cls: 'success',
+      })
+    } else {
       const item = {
         id: new Date().getTime().toString(),
         groceryItem: inputItem,
@@ -27,8 +47,7 @@ function App() {
       })
       setInputItem('')
       setEdit(false)
-    } else {
-      setAlertMessage({ show: true, msg: 'please enter value', cls: 'danger' })
+      setEditID(null)
     }
   }
 
@@ -41,6 +60,7 @@ function App() {
     const specificItem = groceries.find((item) => item.id === id)
     setEdit(true)
     setInputItem(specificItem.groceryItem)
+    setEditID(id)
   }
 
   return (
