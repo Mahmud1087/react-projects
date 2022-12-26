@@ -41,6 +41,9 @@ const reducer = (state, action) => {
 
       return { ...state, total, amount }
 
+    case 'FETCH_DATA':
+      return { ...state, cart: action.payload, loading: false }
+
     default:
       throw new Error('no matching type')
   }
