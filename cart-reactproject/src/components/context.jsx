@@ -8,6 +8,8 @@ const AppContext = React.createContext()
 
 const defaultStates = {
   cart: cartItems,
+  total: 0,
+  amount: 0,
 }
 
 const AppProvider = ({ children }) => {
@@ -24,6 +26,10 @@ const AppProvider = ({ children }) => {
   const increaseDecrease = (id, incDec) => {
     dispatch({ type: 'INCREASE_DECREASE', payload: { id, incDec } })
   }
+
+  useEffect(() => {
+    dispatch({ type: 'GET_TOTALS' })
+  }, [state.cart])
 
   return (
     <AppContext.Provider
