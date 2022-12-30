@@ -24,7 +24,7 @@ const Movies = () => {
         return (
           <Link key={id} to={`movie/${id}`} className='movie'>
             <article>
-              <img src={poster} alt={title} />
+              <img src={poster === 'N/A' ? url : poster} alt={title} />
               <div className='movie-info'>
                 <h4>{title}</h4>
                 <p>{year}</p>
