@@ -31,12 +31,19 @@ const AppProvider = ({ children }) => {
     const data = await response.json()
     dispatch({ type: SET_STORIES, payload: data })
   }
+
+  function removeStory(id) {
+    dispatch({ type: REMOVE_STORY, payload: id })
+  }
+
   useEffect(() => {
     fetchStories()
   }, [state.query, state.page])
 
   return (
-    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ ...state, removeStory }}>
+      {children}
+    </AppContext.Provider>
   )
 }
 // make sure use
