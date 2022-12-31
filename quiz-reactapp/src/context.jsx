@@ -29,8 +29,8 @@ const AppProvider = ({ children }) => {
   })
 
   async function fetchQuestions(url) {
-    setWaiting(true)
-    setLoading(false)
+    setWaiting(false)
+    setLoading(true)
     const response = await axios.get(url).catch((err) => console.log(err))
     if (response) {
       const data = response.data.results
