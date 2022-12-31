@@ -24,6 +24,21 @@ const reducer = (state, action) => {
       return { ...state, stories: newStories }
     case HANDLE_SEARCH:
       return { ...state, query: action.payload, page: 0 }
+    case HANDLE_PAGE:
+      if (action.payload === 'prev') {
+        let prevPage = state.page - 1
+        if (prevPage < 0) {
+          prevPage = state.totalPage - 1
+        }
+        return { ...state, page: prevPage }
+      }
+      if (action.payload === 'next') {
+        let nextPage = state.page + 1
+        if (nextPage > state.totalPage - 1) {
+          nextPage = 0
+        }
+        return { ...state, page: nextPage }
+      }
     default:
       throw new Error('No matching action type')
   }
