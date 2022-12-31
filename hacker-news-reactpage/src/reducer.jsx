@@ -8,6 +8,8 @@ import {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case SET_LOADING:
+      return { ...state, loading: true }
     case SET_STORIES:
       return {
         ...state,
@@ -20,6 +22,8 @@ const reducer = (state, action) => {
         (story) => story.objectID !== action.payload
       )
       return { ...state, stories: newStories }
+    case HANDLE_SEARCH:
+      return { ...state, query: action.payload, page: 0 }
     default:
       throw new Error('No matching action type')
   }
