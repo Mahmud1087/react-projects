@@ -24,7 +24,15 @@ function App() {
 
   const { question, correct_answer, incorrect_answers } = questions[index]
 
-  const allAnswers = [...incorrect_answers, correct_answer]
+  // const allAnswers = [...incorrect_answers, correct_answer]
+  let answers = [...incorrect_answers]
+  const randomNumber = Math.floor(Math.random() * 4)
+  if (randomNumber === 3) {
+    answers.push(correct_answer)
+  } else {
+    answers.push(answers[randomNumber])
+    answers[randomNumber] = correct_answer
+  }
 
   return (
     <main>
@@ -36,7 +44,7 @@ function App() {
         <article className='container'>
           <h2 dangerouslySetInnerHTML={{ __html: question }} />
           <div className='btn-container'>
-            {allAnswers.map((answer, index) => {
+            {answers.map((answer, index) => {
               return (
                 <button
                   key={index}
