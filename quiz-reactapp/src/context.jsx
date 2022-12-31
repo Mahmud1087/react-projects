@@ -98,6 +98,7 @@ const AppProvider = ({ children }) => {
         error,
         correct,
         isModalOpen,
+        inputs,
         checkAnswer,
         nextQuestion,
         handleChange,
