@@ -44,7 +44,7 @@ const Pie = ({ data }) => {
         bgColor: '#FFFFFF',
         showBorder: 0,
         decimals: 0,
-        pieRadius: '55%',
+        pieRadius: '40%',
       },
       // Chart Data
       data,
