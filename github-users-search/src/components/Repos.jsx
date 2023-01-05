@@ -52,8 +52,8 @@ const Repos = () => {
       <Wrapper className='section-center'>
         <Pie data={mostUsed} />
         <Column data={stars} />
-        {/* <Doughnut data={mostStars}/>
-        <Bar data={forks}/> */}
+        <Doughnut data={mostStars} />
+        {/* <Bar data={forks}/> */}
       </Wrapper>
     </section>
   )
