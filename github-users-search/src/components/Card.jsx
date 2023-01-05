@@ -28,13 +28,13 @@ const Card = () => {
       <p className='bio'>{bio}</p>
       <div className='links'>
         <p>
-          <MdBusiness /> {company}
+          <MdBusiness /> {company || 'N / A'}
         </p>
         <p>
-          <MdLocationOn /> {location}
+          <MdLocationOn /> {location || 'N / A'}
         </p>
         <p>
-          <MdLink /> {blog}
+          <MdLink /> {blog || 'N / A'}
         </p>
       </div>
     </Wrapper>
