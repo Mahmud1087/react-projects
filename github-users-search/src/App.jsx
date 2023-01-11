@@ -4,15 +4,22 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div>
+    <AuthWrapper>
       <Router>
         <Routes>
-          <Route path='/' element={<Dashboard></Dashboard>} />
+          <Route
+            path='/'
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
           <Route path='login' element={<Login />} />
-          <Route path='error' element={<Error />} />
+          <Route path='*' element={<Error />} />
         </Routes>
       </Router>
-    </div>
+    </AuthWrapper>
   )
 }
 

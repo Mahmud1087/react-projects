@@ -6,11 +6,20 @@ import * as serviceWorker from './serviceWorker'
 import { GithubProvider } from './context/context'
 import { Auth0Provider } from '@auth0/auth0-react'
 
+// dev-ojlm6gtsgy0b6gjk.us.auth0.com
+// uD0TlEIvYsMhnrwlYZTp2F4ix2ztJb7G
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <GithubProvider>
-      <App />
-    </GithubProvider>
+    <Auth0Provider
+      domain='dev-ojlm6gtsgy0b6gjk.us.auth0.com'
+      clientId='uD0TlEIvYsMhnrwlYZTp2F4ix2ztJb7G'
+      redirectUri={window.location.origin}
+      cacheLocation='localstorage'>
+      <GithubProvider>
+        <App />
+      </GithubProvider>
+    </Auth0Provider>
   </React.StrictMode>
 )
 // If you want your app to work offline and load faster, you can change
