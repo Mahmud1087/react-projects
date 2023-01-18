@@ -1,7 +1,17 @@
 import React from 'react'
+import { useForm, ValidationError } from '@formspree/react'
 import styled from 'styled-components'
 
 const Contact = () => {
+  const [state, handleSubmit] = useForm('mgebvznd')
+  if (state.succeeded) {
+    return (
+      <Succeeded className='section-center'>
+        <p>Thanks for subscribing!</p>
+      </Succeeded>
+    )
+  }
+
   return (
     <Wrapper>
       <div className='section-center'>
@@ -12,13 +22,23 @@ const Contact = () => {
             sint unde quaerat ratione soluta veniam provident adipisci cumque
             eveniet tempore?
           </p>
-          <form className='contact-form'>
+          <form className='contact-form' onSubmit={handleSubmit}>
             <input
+              name='email'
               type='email'
               className='form-input'
               placeholder='Enter Email'
+              required
             />
-            <button type='submit' className='submit-btn'>
+            <ValidationError
+              prefix='Email'
+              field='email'
+              errors={state.errors}
+            />
+            <button
+              type='submit'
+              className='submit-btn'
+              disabled={state.submitting}>
               subscribe
             </button>
           </form>
@@ -87,6 +107,19 @@ const Wrapper = styled.section`
       margin-bottom: 0;
     }
   }
+  @media (min-width: 1280px) {
+    padding: 15rem 0;
+  }
+`
+
+const Succeeded = styled.div`
+  p {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--clr-primary-5);
+  }
+
   @media (min-width: 1280px) {
     padding: 15rem 0;
   }
