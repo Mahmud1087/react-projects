@@ -18,6 +18,7 @@ const initialState = {
   products_loading: false,
   products_error: false,
   products: [],
+  featured_products: [],
   single_products_loading: false,
   single_products_error: false,
   single_products: [],
@@ -48,7 +49,7 @@ export const ProductsProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    fetchProducts()
+    fetchProducts(url)
   }, [])
 
   return (
