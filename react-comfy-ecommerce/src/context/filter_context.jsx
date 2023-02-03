@@ -17,6 +17,16 @@ const initialState = {
   all_products: [],
   grid_view: true,
   sort: 'price-lowest',
+  filters: {
+    text: '',
+    category: 'all',
+    company: 'all',
+    colors: 'all',
+    min_price: 0,
+    max_price: 0,
+    price: 0,
+    shipping: false,
+  },
 }
 
 const FilterContext = React.createContext()
@@ -39,7 +49,8 @@ export const FilterProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: SORT_PRODUCTS })
-  }, [state.sort])
+    dispatch({ type: FILTER_PRODUCTS })
+  }, [state.sort, state.sort])
 
   const updateSort = (e) => {
     const value = e.target.value
