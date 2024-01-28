@@ -90,7 +90,7 @@ export const DarkModeIcon = styled.img`
 
 export const DateContainer = styled.p`
   color: ${({ theme }) => theme.date};
-  position: absolute;
+  position: fixed;
   bottom: 1rem;
   right: 1rem;
   z-index: 10;
