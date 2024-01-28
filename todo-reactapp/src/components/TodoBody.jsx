@@ -73,7 +73,6 @@ export default function TodoBody() {
   function editList(id, todoInput) {
     setItem(todoInput);
     setEditId(id);
-    // dispatch({ type: 'EDIT_TASK', payload: { id, item } });
   }
 
   return (

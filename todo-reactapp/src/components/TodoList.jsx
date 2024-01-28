@@ -4,6 +4,7 @@ import {
   MdEdit,
   MdRadioButtonUnchecked,
 } from 'react-icons/md';
+import { FaEdit, FaTrash } from 'react-icons/fa';
 import {
   CheckItem,
   ClearCompleted,
@@ -16,7 +17,6 @@ import {
   EditDeleteIcons,
 } from './styles/TodoList.styled';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import { useState } from 'react';
 
 export default function TodoList({
   todoList,
@@ -59,11 +59,11 @@ export default function TodoList({
                         )}
                       </CheckItem>
                       <EditDeleteIcons>
-                        <MdEdit
+                        <FaEdit
                           className='edit'
                           onClick={() => editList(todo.id, todo.item)}
                         />
-                        <MdClose
+                        <FaTrash
                           className='close'
                           onClick={() => removeItem(todo.id)}
                         />

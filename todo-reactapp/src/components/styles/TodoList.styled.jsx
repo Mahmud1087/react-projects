@@ -79,17 +79,17 @@ export const TodoItemsFooter = styled.div`
 export const EditDeleteIcons = styled.div`
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
 
   & .close {
-    font-size: 22px;
+    font-size: 0.9rem;
     color: #d00000;
     cursor: pointer;
   }
 
   & .edit {
     color: green;
-    font-size: 22px;
+    font-size: 0.9rem;
     cursor: pointer;
   }
 `;
