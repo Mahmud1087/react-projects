@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const LightModeBgMobile = styled.img`
   display: none;
@@ -10,7 +10,7 @@ export const LightModeBgMobile = styled.img`
     top: 0;
     z-index: -1;
   }
-`
+`;
 
 export const LightModeBgDesktop = styled.img`
   display: block;
@@ -24,7 +24,7 @@ export const LightModeBgDesktop = styled.img`
   @media screen and (min-width: 320px) and (max-width: 480px) {
     display: none;
   }
-`
+`;
 
 export const DarkModeBgMobile = styled.img`
   display: none;
@@ -36,7 +36,7 @@ export const DarkModeBgMobile = styled.img`
     top: 0;
     z-index: -1;
   }
-`
+`;
 
 export const DarkModeBgDesktop = styled.img`
   display: block;
@@ -50,7 +50,7 @@ export const DarkModeBgDesktop = styled.img`
   @media screen and (min-width: 320px) and (max-width: 480px) {
     display: none;
   }
-`
+`;
 
 export const Container = styled.div`
   width: 90%;
@@ -63,28 +63,30 @@ export const Container = styled.div`
   @media screen and (min-width: 761px) {
     width: 45%;
   }
-`
+`;
 
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 3rem 0 2.3rem;
-`
+`;
 
 export const Heading = styled.h2`
   letter-spacing: 13px;
   font-weight: 700;
   color: hsl(0, 0%, 98%);
-`
+`;
 
 export const LightModeIcon = styled.img`
   width: 1.3rem;
-`
+  cursor: pointer;
+`;
 
 export const DarkModeIcon = styled.img`
   width: 1.3rem;
-`
+  cursor: pointer;
+`;
 
 export const Footer = styled.footer`
   margin: 3rem 0;
@@ -92,4 +94,4 @@ export const Footer = styled.footer`
   font-weight: 600;
   font-size: 1rem;
   text-align: center;
-`
+`;

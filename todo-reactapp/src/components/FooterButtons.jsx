@@ -1,9 +1,9 @@
-import { useState } from 'react'
-import { Button, StyledFooterButtons } from './styles/FooterBtns.styled'
+import { useState } from 'react';
+import { Button, StyledFooterButtons } from './styles/FooterBtns.styled';
 
 export default function FooterButtons({ allActiveCompleted }) {
-  const [value, setValue] = useState(0)
-  const buttons = ['all', 'active', 'completed']
+  const [value, setValue] = useState(0);
+  const buttons = ['all', 'active', 'completed'];
 
   return (
     <StyledFooterButtons>
@@ -12,14 +12,15 @@ export default function FooterButtons({ allActiveCompleted }) {
           <Button
             key={index}
             onClick={() => {
-              setValue(index)
-              allActiveCompleted(button)
+              setValue(index);
+              allActiveCompleted(button);
             }}
-            className={`${index === value && 'active'}`}>
+            className={`${index === value ? 'active' : ''}`}
+          >
             {button}
           </Button>
-        )
+        );
       })}
     </StyledFooterButtons>
-  )
+  );
 }

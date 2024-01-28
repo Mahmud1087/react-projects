@@ -1,4 +1,9 @@
-import { MdCheckCircle, MdClose, MdRadioButtonUnchecked } from 'react-icons/md'
+import {
+  MdCheckCircle,
+  MdClose,
+  MdEdit,
+  MdRadioButtonUnchecked,
+} from 'react-icons/md';
 import {
   CheckItem,
   ClearCompleted,
@@ -8,9 +13,10 @@ import {
   TodoItems,
   TodoItemsFooter,
   Todos,
-} from './styles/TodoList.styled'
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
-import { useState } from 'react'
+  EditDeleteIcons,
+} from './styles/TodoList.styled';
+import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import { useState } from 'react';
 
 export default function TodoList({
   todoList,
@@ -18,6 +24,7 @@ export default function TodoList({
   completedTask,
   clearCompleted,
   handleOnDragEnd,
+  editList,
 }) {
   return (
     <DragDropContext onDragEnd={handleOnDragEnd}>
@@ -31,7 +38,8 @@ export default function TodoList({
                     <TodoItems
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
-                      ref={provided.innerRef}>
+                      ref={provided.innerRef}
+                    >
                       <CheckItem>
                         {todo.isCompleted ? (
                           <MdCheckCircle
@@ -50,14 +58,20 @@ export default function TodoList({
                           <Item>{todo.item}</Item>
                         )}
                       </CheckItem>
-                      <MdClose
-                        className='close'
-                        onClick={() => removeItem(todo.id)}
-                      />
+                      <EditDeleteIcons>
+                        <MdEdit
+                          className='edit'
+                          onClick={() => editList(todo.id, todo.item)}
+                        />
+                        <MdClose
+                          className='close'
+                          onClick={() => removeItem(todo.id)}
+                        />
+                      </EditDeleteIcons>
                     </TodoItems>
                   )}
                 </Draggable>
-              )
+              );
             })}
             {provided.placeholder}
             <TodoItemsFooter>
@@ -78,5 +92,5 @@ export default function TodoList({
         )}
       </Droppable>
     </DragDropContext>
-  )
+  );
 }

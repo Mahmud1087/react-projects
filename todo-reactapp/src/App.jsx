@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { ThemeProvider } from 'styled-components'
-import { colors } from './components/colors'
+import { useEffect, useState } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { colors } from './components/colors';
 import {
   Container,
   DarkModeBgDesktop,
@@ -11,18 +11,28 @@ import {
   LightModeBgDesktop,
   LightModeBgMobile,
   LightModeIcon,
-} from './components/styles/App.styled'
-import { GlobalStyles } from './components/styles/Global.styled'
-import lightModeBGMobile from './assets/bg-mobile-light.jpg'
-import darkModeBGMobile from './assets/bg-mobile-dark.jpg'
-import lightModeBGDesktop from './assets/bg-desktop-light.jpg'
-import darkModeBGDesktop from './assets/bg-desktop-dark.jpg'
-import lightModeIcon from './assets/icon-moon.svg'
-import darkModeIcon from './assets/icon-sun.svg'
-import TodoBody from './components/TodoBody'
+} from './components/styles/App.styled';
+import { GlobalStyles } from './components/styles/Global.styled';
+import lightModeBGMobile from './assets/bg-mobile-light.jpg';
+import darkModeBGMobile from './assets/bg-mobile-dark.jpg';
+import lightModeBGDesktop from './assets/bg-desktop-light.jpg';
+import darkModeBGDesktop from './assets/bg-desktop-dark.jpg';
+import lightModeIcon from './assets/icon-moon.svg';
+import darkModeIcon from './assets/icon-sun.svg';
+import TodoBody from './components/TodoBody';
+
+const saveTheme = (theme) => {
+  localStorage.setItem('darkTheme', JSON.stringify(theme));
+};
+
+const defaultTheme = JSON.parse(localStorage.getItem('darkTheme') || false);
 
 export default function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(defaultTheme);
+
+  useEffect(() => {
+    saveTheme(isDarkMode);
+  }, [isDarkMode]);
 
   const theme = {
     body: isDarkMode ? colors.veryDarkBlue : colors.veryLightGrayishBlue,
@@ -39,7 +49,7 @@ export default function App() {
       ? colors.veryDarkGrayishBlue
       : colors.lightGrayishBlue,
     blue: isDarkMode ? colors.purple : colors.brightBlue,
-  }
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -72,5 +82,5 @@ export default function App() {
         <TodoBody />
       </Container>
     </ThemeProvider>
-  )
+  );
 }

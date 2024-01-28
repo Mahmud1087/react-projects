@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const BoxItem = styled.form`
   padding: 0.7rem 1.2rem;
@@ -7,7 +7,7 @@ export const BoxItem = styled.form`
   justify-content: space-between;
   align-items: center;
   border-radius: 6px;
-`
+`;
 
 export const CreateItemInput = styled.input`
   background: transparent;
@@ -22,7 +22,7 @@ export const CreateItemInput = styled.input`
   &:focus {
     outline: none;
   }
-`
+`;
 
 export const AddButton = styled.button`
   border: none;
@@ -32,8 +32,9 @@ export const AddButton = styled.button`
   font-size: 27px;
   border-radius: 50px;
   color: ${({ theme }) => theme.blue};
+  cursor: pointer;
 
   &:focus {
     outline: none;
   }
-`
+`;
