@@ -88,6 +88,14 @@ export const DarkModeIcon = styled.img`
   cursor: pointer;
 `;
 
+export const DateContainer = styled.p`
+  color: ${({ theme }) => theme.date};
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 10;
+`;
+
 export const Footer = styled.footer`
   margin: 3rem 0;
   color: ${({ theme }) => theme.itemCompleted};

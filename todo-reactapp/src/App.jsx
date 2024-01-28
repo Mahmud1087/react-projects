@@ -6,6 +6,7 @@ import {
   DarkModeBgDesktop,
   DarkModeBgMobile,
   DarkModeIcon,
+  DateContainer,
   Header,
   Heading,
   LightModeBgDesktop,
@@ -30,10 +31,6 @@ const defaultTheme = JSON.parse(localStorage.getItem('darkTheme') || false);
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(defaultTheme);
 
-  useEffect(() => {
-    saveTheme(isDarkMode);
-  }, [isDarkMode]);
-
   const theme = {
     body: isDarkMode ? colors.veryDarkBlue : colors.veryLightGrayishBlue,
     header_ItemBoxBG: isDarkMode
@@ -45,11 +42,26 @@ export default function App() {
     itemCompleted: isDarkMode
       ? colors.DarkGrayishBlue2
       : colors.DarkGrayishBlue,
+    date: isDarkMode ? colors.brightBlue : colors.blackColor,
     checkerBorder_ItemBottomBorder: isDarkMode
       ? colors.veryDarkGrayishBlue
       : colors.lightGrayishBlue,
     blue: isDarkMode ? colors.purple : colors.brightBlue,
   };
+
+  useEffect(() => {
+    saveTheme(isDarkMode);
+  }, [isDarkMode]);
+
+  const createDate = () => new Date();
+  const todaysDate = () => createDate().toDateString();
+
+  // useEffect(() => {
+  //   const date = setInterval(() => {
+  //     createDate();
+  //   }, 1000);
+  //   clearInterval(date);
+  // }, [createDate().getSeconds()]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -67,6 +79,7 @@ export default function App() {
       <Container>
         <Header>
           <Heading>TODO</Heading>
+
           {isDarkMode ? (
             <DarkModeIcon
               src={darkModeIcon}
@@ -81,6 +94,7 @@ export default function App() {
         </Header>
         <TodoBody />
       </Container>
+      <DateContainer>{todaysDate()}</DateContainer>
     </ThemeProvider>
   );
 }

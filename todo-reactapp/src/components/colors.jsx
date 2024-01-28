@@ -19,4 +19,5 @@ export const colors = {
   DarkGrayishBlue2: 'hsl(234, 11%, 52%)',
   veryDarkGrayishBlue2: 'hsl(233, 14%, 35%)',
   veryDarkGrayishBlue3: 'hsl(237, 14%, 26%)',
-}
+  blackColor: '#333',
+};
